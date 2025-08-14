@@ -1,12 +1,15 @@
 {
   "builds": [
     {
-      "src": "signal-slot/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "build", "buildCommand": "npm ci && npm run build" }
+      "config": {
+        "distDir": "build",
+        "buildCommand": "npm ci && npm run build"
+      }
     }
   ],
-  "routes": [
-    { "src": "/(.*)", "dest": "src/index.html" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
